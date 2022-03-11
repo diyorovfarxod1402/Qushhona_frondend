@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="qushxona__table1">
+    <table class="qushxona_table">
+        <tr>
+            <th>Ism</th>
+            <th>Mahsulot</th>
+            <th>Son</th>
+            <th>Taxminiy Massa</th>
+            <th>To'lov</th>
+            <th>Kelgan vaqti</th>
+        </tr>
+        {% for i in data %}
+            <tr>
+                <td>{{ i.name}}</td>
+                <td>{{ i.product }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>{{ i.weight }}</td>
+                <td>{{ i.tulov }}</td>
+                <td>{{ i.created_data }}</td>
+            </tr>
+        {% endfor %}
+            <tr id="add_kirim">
+
+            </tr>
+    </table>
+
+    <button id="addbutton" style="text-align:left" onclick="add_dehqon_column()">+Add</button>
+</div>
+
+{% endblock %}

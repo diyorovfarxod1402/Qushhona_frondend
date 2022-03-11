@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="qushxona__table1">
+    <table class="qushxona_table">
+        <tr>
+            <th>Mijoz</th>
+            <th>Dehqon</th>
+            <th>Og'irligi</th>
+            <th>Narxi</th>
+            <th>Soni</th>
+            <th>Umumiy narx</th>
+            <th>Sotilgan vaqti</th>
+        </tr>
+        {% for i in data %}
+            <tr>
+                <td><a href="{% url 'clientPageView' i.id %}">{{ i.client}}</a></td>
+                <td>{{ i.dehqon }}</td>
+                <td>{{ i.weight }}</td>
+                <td>{{ i.price }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>{{ i.total_price }}</td>
+                <td>{{ i.created_data }}</td>
+            </tr>
+        {% endfor %}
+            <tr id="add_income">
+
+            </tr>
+    </table>
+
+    <button id="addbutton" style="text-align:left" onclick="add_income()">+Add</button>
+    <div class="addstatus" id="addstatus" style="color: red; text-align: center">
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'bozorbase.html' %}
+{% block content %}
+    <div id="information">
+
+    </div>
+    <div id="status">
+
+    </div>
+
+
+
+    <div class="qushxona__table1"  style="margin: 3%">
+        <table class="qushxona_table"  id="qushxona__table1"     style="margin: 2%">
+            <tr>
+                <th>№</th>
+                <th>Sotuvchi</th>
+                <th>Mahsulot</th>
+                <th>Soni</th>
+                <th>Og'irligi</th>
+                <th>Narxi</th>
+                <th>Sanasi</th>
+                <th>Jami summa</th>
+                <th>Jami tulov</th>
+                <th>Qolgan qarz</th>
+            </tr>
+            {% for i in data %}
+                <tr>
+                    <td>{{ i.n }}</td>
+                    <td>{{ i.sotuvchi }}</td>
+                    <td>{{ i.mahsulot }}</td>
+                    <td>{{ i.soni }}</td>
+                    <td>{{ i.ogirligi }}</td>
+                    <td>{{ i.narxi }}</td>
+                    <td>{{ i.sanasi }}</td>
+                    <td>{{ i.jamisumma }}</td>
+                    <td>{{ i.jamitulov }}</td>
+                    <td>{{ i.qarz }}</td>
+                    <td>
+                        <button style="color:blue;"
+                                onclick='payments_sotuvchi({{ i.payments }}, "{{ i.sotuvchi }}", "{{ i.mahsulot }}", {{ i.soni }}, {{ i.id }}, {{ i.qarz }})'>
+                            To'lov qo'shish
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+    <div id="backbutton"></div>
+{% endblock %}

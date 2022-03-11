@@ -1,0 +1,63 @@
+{% extends 'bozorbase.html' %}
+{% block content %}
+
+   Jami qolgan soni : {{ bazadaqolganson }}
+    Jami kg: {{ qolganogirlik }}
+
+
+
+    <div class="qushxona__table1">
+        <table class="qushxona_table">
+            <tr>
+                <th>№</th>
+                <th>Sotuvchi</th>
+                <th>mahsulot</th>
+                <th>og'irligi</th>
+                <th>Narxi(1kg)</th>
+                <th>Tulov</th>
+                <th>Soni</th>
+                <th>Sanasi</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.n }}</td>
+                <td><a href="{% url 'sotuvchi' i.id %}">{{ i.sotuvchi }}</a></td>
+                <td>{{ i.mahsulot }}</td>
+                <td>{{ i.ogirligi }}</td>
+                <td>{{ i.price }}</td>
+                <td>{{ i.tulov }}</td>
+                <td>{{ i.soni }}</td>
+                <td>{{ i.date }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>№</td>
+                <td><select name="sotuvchi" id="sotuvchi">
+                    <option value="">Sotuvchilar</option>
+                    {% for i in sotuvchilar %}
+                    <option value="{{ i.id }}">{{ i.full_name }}</option>
+                    {% endfor %}
+                </select></td>
+                <td><select name="mahsulot" id="mahsulot">
+                    <option value="">mahsulotlar</option>
+                    {% for i in mahsulotlar %}
+                        <option value="{{i.id}}">{{ i.name }}</option>
+                    {% endfor %}
+                </select></td>
+                <td><input id="ogirligi" type="text"></td>
+                <td><input id="price" type="number"></td>
+                <td><input id="tulov" type="number"></td>
+                <td><button onclick="bozor_chiqim_save()">Save</button></td>
+            </tr> 
+        </table>
+    <p style="color: red; text-align: center">
+        Jami kg: {{ gush }}<br>
+        Jami soni: {{ soni }}
+    </p> 
+
+    </div>
+
+
+
+
+{% endblock %}

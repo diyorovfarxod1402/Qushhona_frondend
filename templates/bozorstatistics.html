@@ -1,0 +1,50 @@
+{% extends 'bozorbase.html' %}
+{% block content %}
+    <div style="margin: 1% text-align:center">
+            <select onchange="bozordaychange()" name="bozorday" id="bozorday">
+            <option style="color:red" value="1">Kunlik</option>
+            <option value="7">Haftalik</option>
+            <option value="30">Oylik</option>
+        </select>
+    </div>
+    <div class="qushxona__table1">
+        <table class="qushxona_table" id="qushxona_table">
+            <tr>
+                <th>№</th>
+                <th>Sotuvchi</th>
+                <th>mahsulot</th>
+                <th>og'irligi</th>
+                <th>Narxi(1kg)</th>
+                <th>Soni</th>
+                <th>Jami summa</th>
+                <th>Jami tulov</th>
+                <th>Qarz</th>
+                <th>Sanasi</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.n }}</td>
+                <td><a href="{% url 'sotuvchi' i.id %}">{{ i.sotuvchi }}</a></td>
+                <td>{{ i.mahsulot }}</td>
+                <td>{{ i.ogirligi }}</td>
+                <td>{{ i.price }}</td>
+                <td>{{ i.soni }}</td>
+                <td>{{ i.jamisumma }}</td>
+                <td>{{ i.jamitulov }}</td>
+                <td>{{ i.qarz }}</td>
+                <td>{{ i.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    <p style="color: red; text-align: center" id="jamisi">
+        Jami kg: {{ gush }}      Jami soni: {{ soni }}
+        <br>
+        Jami Summa: {{ jsumma }}   Jami Tulov: {{ jtulov }}
+    </p>
+
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Qushxona Kalla Hasb
+        oluvchilar</h3>
+    <select name="data" id="dataday" onchange="changedayteri('kallahasb')">
+        <option value="1">Kunlik</option>
+        <option value="7">Haftalik</option>
+        <option value="30">Oylik</option>
+    </select>
+
+
+    <div class="qushxona__table1">
+        <table class="qushxona_table", id="qushxona_terikalla">
+            <tr>
+                <th>№</th>
+                <th>Sotuvchi</th>
+                <th>Mol Turi</th>
+                <th>Soni</th>
+                <th>Sanasi</th>
+            </tr>
+
+            {% for i in data %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.mijoz }}</td>
+                    <td>{{ i.product.name }}</td>
+                    <td>{{ i.soni }}</td>
+                    <td>{{ i.created_date }}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td>{{ id }}</td>
+                <td><select name="mijozlar" id="mijoz">
+                    {% for i in mijoz %}
+                        <option value="{{ i.id }}">{{ i.full_name }}</option>
+                    {% endfor %}
+                </select></td>
+                <td><select name="mahsulotlar" id="product">
+                    {% for i in product %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select></td>
+            <td><input type="number" id="quantity"></td>
+        <td><button onclick="kallaterisave('kallahasb')">Save</button></td>
+            </tr>
+
+        </table>
+    </div>
+
+
+{% endblock %}

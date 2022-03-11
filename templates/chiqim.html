@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="qushxona__table1">
+<p style="text-align: center;color: red">
+    Qushxonaning kunlik chiqimi
+</p>
+
+<p style="text-align: center;color: red">
+    Dehqonlarga to'lovlar
+</p>
+<table class="qushxona_table">
+    <tr>
+        <th>№</th>
+        <th>Dehqon</th>
+        <th>miqdori</th>
+        <th>Sanasi</th>
+    </tr>
+    {% for i in chiqimlar %}
+    <tr>
+        <th>{{ i.n }}</th>
+    <th>{{ i.mijoz }}</th>
+    <th>{{ i.amount }}</th>
+    <th>{{ i.date }}</th>
+    </tr>
+    {% endfor %}
+</table>
+<p style="text-align: center;color: red" >
+    Dehqonlarga jami tulovlar: {{ dehqonjami }}
+</p>
+
+
+<p style="text-align: center;color: red">
+    Boshqa xarajatlar
+</p>
+
+
+<table class="qushxona_table">
+            <tr>
+                <th>№</th>
+                <th>Maqsadi</th>
+                <th>miqdori</th>
+                <th>date</th>
+            </tr>
+            {% for i in  data %}
+                <tr>
+                    <td>{{ i.n }}</td>
+                    <td>{{ i.maqsad }}</td>
+                    <td>{{ i.miqdori }}</td>
+                    <td>{{ i.date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+<p style="text-align:center;color:red">
+    Boshqa xarajatlar {{ chiqimb }}<br>
+    Kunlik kassa: {{ kassa }}
+</p>
+</div>
+
+{% endblock %}

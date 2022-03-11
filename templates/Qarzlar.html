@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="qushxona__table1">
+    <table class="qushxona_table">
+        <tr>
+            <th>№</th>
+            <th>Optomchi</th>
+            <th>Jami qarz</th>
+        </tr>
+        {% for i in data %}
+            <tr>
+            <td>{{ i.n }}</td>
+            <td><a href="{% url 'clientPageView' i.id %}">{{ i.Client }}</a></td>
+            <td>{{ i.qarz }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}

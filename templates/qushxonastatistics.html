@@ -1,0 +1,48 @@
+{% extends 'bozorbase.html' %}
+{% block content %}
+    <div>
+        <select onchange="qushxonadaychange()" name="qushxonaday" id="qushxonaday">
+            <option value="1">Kunlik</option>
+            <option value="7">Haftalik</option>
+            <option value="30">Oylik</option>
+        </select>
+    </div>
+
+
+
+    <div class="qushxona__table1">
+        <table class="qushxona_table" id="qushxona_table">
+            <tr>
+                <th>№</th>
+                <th>Mahsulot</th>
+                <th>Soni</th>
+                <th>og'irligi</th>
+                <th>Narxi</th>
+                <th>Jami summa</th>
+                <th>Jami tulov</th>
+                <th>Qarz</th>
+                <th>Sanasi</th>
+            </tr>
+            {% for i in data %}
+                <tr>
+                    <td>{{ i.n }}</td>
+                    <td>{{ i.product }}</td>
+                    <td>{{ i.quantity }}</td>
+                    <td>{{ i.weight }}</td>
+                    <td>{{ i.price }}</td>
+                    <td>{{ i.jamisuma }}</td>
+                    <td>{{ i.jamitulov }}</td>
+                    <td>{{ i.qarz }}</td>
+                    <td>{{ i.date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    <p style="text-align: center; color: red;" id="qarz">
+        Jami qarzdorlik : {{ jamiqarz }} <br>
+        Jami to'lov : {{ jamitulov }}
+    </p>
+    </div>
+
+
+
+{% endblock %}
